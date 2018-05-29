@@ -1,0 +1,20 @@
+###Tomcat
+server:
+  port: 8088
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+
+spring:
+  #环境
+  profiles:
+    active: dev
+
+###mybatis
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  #实体扫描，多个package用逗号或分号隔开
+  type-aliases-package: com.anyway.modules.*.entity

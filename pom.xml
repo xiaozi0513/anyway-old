@@ -6,7 +6,13 @@
 
     <groupId>com.anyway</groupId>
     <artifactId>anyway</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0</version>
+
+    <modules>
+        <module>anyway-common</module>
+        <module>anyway-manage</module>
+    </modules>
 
     <name>anyway</name>
     <url>http://www.anyway.com</url>
@@ -24,6 +30,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <mysql.version>8.0.11</mysql.version>
+        <druid.version>1.1.9</druid.version>
         <mybatis-plus.version>2.3</mybatis-plus.version>
     </properties>
 
@@ -32,6 +39,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -43,12 +56,23 @@
             <scope>test</scope>
         </dependency>
 
+        <!--log4j2-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+
         <!--mysql-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
