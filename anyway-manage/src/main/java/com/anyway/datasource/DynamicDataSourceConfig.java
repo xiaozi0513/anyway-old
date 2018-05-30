@@ -12,33 +12,32 @@ import java.util.Map;
 
 /**
  * 动态多数据源配置
- *
  * @author wang_hui
  * @date 2018/5/29 23:08
- * @since
+ * @since 1.0.0
  **/
 @Configuration
 public class DynamicDataSourceConfig {
 
-    @Bean
-    @ConfigurationProperties("spring.datasource.druid.first")
-    public DataSource firstDataSource() {
+    @Bean(name = "masterDataSource", initMethod = "init", destroyMethod = "close")
+    @ConfigurationProperties("spring.datasource.druid.master")
+    public DataSource masterDataSource() {
         return DruidDataSourceBuilder.create().build();
     }
 
-    @Bean
-    @ConfigurationProperties("spring.datasource.druid.second")
-    public DataSource secondDataSource() {
+    @Bean(name = "slaveDataSource", initMethod = "init", destroyMethod = "close")
+    @ConfigurationProperties("spring.datasource.druid.slave")
+    public DataSource slaveDataSource() {
         return DruidDataSourceBuilder.create().build();
     }
 
-    @Bean
+    @Bean("dynamicDataSource")
     @Primary
-    public DynamicDataSource dataSource(DataSource firstDataSource, DataSource secondDataSource) {
+    public DynamicDataSource dataSource(DataSource masterDataSource, DataSource slaveDataSource) {
         Map<Object, Object> targetDataSource = new HashMap<>();
-        targetDataSource.put(DataSourceNames.FIRST, firstDataSource);
-        targetDataSource.put(DataSourceNames.SECOND, secondDataSource);
-        return new DynamicDataSource(firstDataSource, targetDataSource);
+        targetDataSource.put(DataSourceNames.MASTER, masterDataSource);
+        targetDataSource.put(DataSourceNames.SLAVE, slaveDataSource);
+        return new DynamicDataSource(masterDataSource, targetDataSource);
     }
 
 }

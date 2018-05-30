@@ -5,9 +5,9 @@ package com.anyway.datasource;
  *
  * @author wang_hui
  * @date 2018/5/29 23:20
- * @since
+ * @since 1.0.0
  **/
 public interface DataSourceNames {
-    String FIRST = "first";
-    String SECOND = "second";
+    String MASTER = "master";
+    String SLAVE = "slave";
 }
