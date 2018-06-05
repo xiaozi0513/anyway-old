@@ -1,6 +1,6 @@
 ###日志设置
 logging:
-  config: classpath:conf/log4j2-dev.xml
+  config: classpath:conf/logback-dev.xml
 
 ###数据源
 spring:

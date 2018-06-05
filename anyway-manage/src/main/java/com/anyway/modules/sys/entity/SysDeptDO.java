@@ -6,21 +6,20 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
- * 系统菜单
+ * 部门信息
  * @author: wang_hui
- * @date: 2018/5/30 下午4:49
+ * @date: 2018/6/1 下午2:58
  * @since: 1.0.0
  */
 @Data
-@TableName("sys_menu")
-public class SysMenuDO implements Serializable {
-    private static final long serialVersionUID = 7160622958910551008L;
+@TableName("sys_dept")
+public class SysDeptDO implements Serializable {
+    private static final long serialVersionUID = -2472460596602190085L;
 
     @TableId
-    private Long menuId;
+    private Long deptId;
 
     private Long parentId;
 
@@ -29,20 +28,7 @@ public class SysMenuDO implements Serializable {
 
     private String name;
 
-    private String url;
-
-    private String perms;
-
-    private Integer type;
-
-    private String icon;
-
     private Integer orderNum;
 
-    @TableField(exist = false)
-    private Boolean open;
-
-    @TableField(exist = false)
-    private List<?> list;
-
+    private Integer delFlag;
 }

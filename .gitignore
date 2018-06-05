@@ -25,4 +25,5 @@
 /.nb-gradle/
 
 ### 自定义 ###
-
+**/target/
+.DS_Store

@@ -15,6 +15,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 @MapperScan(basePackages = {"com.anyway.modules.*.dao"})
 public class AnywayApplication {
     public static void main(String[] args) {
+//        SpringApplication bootstrap = new SpringApplication(AnywayApplication.class);
+//        bootstrap.setBanner(new ResourceBanner(new ClassPathResource("banner.txt")));
+//        bootstrap.run(args);
         SpringApplication.run(AnywayApplication.class, args);
     }
 }
