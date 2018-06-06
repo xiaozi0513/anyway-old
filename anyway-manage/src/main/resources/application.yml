@@ -12,6 +12,8 @@ spring:
   #环境
   profiles:
     active: dev
+  freemarker:
+    suffix: .html
 
 ###mybatis
 mybatis-plus:

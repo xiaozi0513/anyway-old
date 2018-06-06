@@ -2,8 +2,10 @@
 logging:
   config: classpath:conf/logback-dev.xml
 
-###数据源
 spring:
+  freemarker:
+    cache: false
+  ###数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
