@@ -5,7 +5,6 @@ import com.google.code.kaptcha.Producer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,11 +28,6 @@ public class SysLoginController {
     @Autowired
     private Producer producer;
 
-    @GetMapping("/")
-    public String toLogin() {
-        return "login";
-    }
-
     /**
      * 登录验证
      * @param username
@@ -49,7 +43,7 @@ public class SysLoginController {
 
         //校验用户密码
 
-        return R.error(501, "用户名错误");
+        return R.error(5000,"出了什么问题");
     }
 
     /**
