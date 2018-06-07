@@ -2,7 +2,7 @@
 <Configuration status="WARN" monitorInterval="30">
     <Properties>
         <!--日志根路径-->
-        <Property name="logPath">D:/myspace/log/anyway/dev</Property>
+        <Property name="logPath">D:/myspaces/log/anyway/dev</Property>
         <!--日志输出格式-->
         <Property name="logPattern">%d{HH:mm:ss.SSS} %highlight{%-5level} [%t] %blue{%logger{36}} - %msg%n</Property>
     </Properties>
