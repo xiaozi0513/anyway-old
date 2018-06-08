@@ -43,7 +43,7 @@ public class SysLoginController {
 
         //校验用户密码
 
-        return R.error(5000,"出了什么问题");
+        return R.ok();
     }
 
     /**
