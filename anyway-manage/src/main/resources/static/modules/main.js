@@ -1,4 +1,6 @@
-layui.extend({
+layui.config({
+  base: "/"
+}).extend({
   index: 'lib/index' //主入口模块
 }).use('index', function () {
   var $ = layui.$,
@@ -11,11 +13,10 @@ layui.extend({
     data: {},
     dataType: 'json',
     success: function (res) {
-      console.log(res.data);
       showMenu(res.data);
     }
   });
-  showMenu = function (strData) {
+  var showMenu = function (strData) {
     var data;
     if (typeof(strData) == "string") {
       var data = JSON.parse(strData); //部分用户解析出来的是字符串，转换一下
@@ -27,7 +28,7 @@ layui.extend({
       ulHtml += '<li data-name="home" class="layui-nav-item">';
       //判断是否有子菜单
       if (data[i].children != undefined && data[i].children.length > 0) {
-        ulHtml += '<a href="javascript:;" lay-tips="" lay-direction="2">';
+        ulHtml += '<a href="javascript:;" lay-tips="'+data[i].title+'" lay-direction="2">';
         ulHtml += '<i class="layui-icon layui-icon-app"></i>';
         ulHtml += '<cite>'+data[i].title+'</cite>';
         ulHtml += '</a>';

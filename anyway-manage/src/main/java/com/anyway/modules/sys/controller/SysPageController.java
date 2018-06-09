@@ -17,7 +17,7 @@ public class SysPageController {
      * @return
      */
     @GetMapping(value = {"/", "/login.html"})
-    public String toLogin() {
+    public String login() {
         return "login";
     }
 
@@ -28,6 +28,15 @@ public class SysPageController {
     @GetMapping("/index.html")
     public String index() {
         return "index";
+    }
+
+    /**
+     * 跳转到Home页
+     * @return
+     */
+    @GetMapping("/home.html")
+    public String home(){
+        return "home";
     }
 
 }
