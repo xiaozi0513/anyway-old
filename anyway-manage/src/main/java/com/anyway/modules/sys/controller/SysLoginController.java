@@ -51,9 +51,10 @@ public class SysLoginController {
      * @return
      */
     @RequestMapping(value = "/sys/logout", method = RequestMethod.GET)
-    public String logout() {
+    @ResponseBody
+    public R logout() {
         log.info("用户退出了......");
-        return "redirect:login.html";
+        return R.ok();
     }
 
     /**
