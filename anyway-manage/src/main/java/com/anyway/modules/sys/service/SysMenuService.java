@@ -19,4 +19,10 @@ public interface SysMenuService extends IService<SysMenuDO> {
      * @return
      */
     List<SysMenuDO> queryListByParentId(Long parentId);
+
+    /**
+     * 获取菜单列表
+     * @return
+     */
+    List<SysMenuDO> queryMenuList();
 }

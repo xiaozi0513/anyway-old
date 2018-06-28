@@ -20,3 +20,5 @@ mybatis-plus:
   mapper-locations: classpath:mapper/**/*.xml
   #实体扫描，多个package用逗号或分号隔开
   type-aliases-package: com.anyway.modules.*.entity
+  configuration:
+    map-underscore-to-camel-case: true #下划线转驼峰

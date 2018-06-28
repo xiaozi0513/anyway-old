@@ -1,5 +1,6 @@
 package com.anyway.modules.sys.controller;
 
+import com.anyway.common.utils.R;
 import com.anyway.modules.sys.entity.SysMenuDO;
 import com.anyway.modules.sys.service.SysMenuService;
 import lombok.extern.slf4j.Slf4j;
@@ -24,8 +25,8 @@ public class SysMenuController {
     private SysMenuService sysMenuService;
 
     @RequestMapping("/nav")
-    public void nav() {
-        List<SysMenuDO> menuList = sysMenuService.queryListByParentId(1L);
-        log.info("===>" + menuList);
+    public R nav() {
+        List<SysMenuDO> menuList = sysMenuService.queryMenuList();
+        return R.ok().put("data", menuList);
     }
 }

@@ -28,23 +28,23 @@ layui.config({
       ulHtml += '<li data-name="home" class="layui-nav-item">';
       //判断是否有子菜单
       if (data[i].children != undefined && data[i].children.length > 0) {
-        ulHtml += '<a href="javascript:;" lay-tips="'+data[i].title+'" lay-direction="2">';
+        ulHtml += '<a href="javascript:;" lay-tips="'+data[i].name+'" lay-direction="2">';
         ulHtml += '<i class="layui-icon layui-icon-app"></i>';
-        ulHtml += '<cite>'+data[i].title+'</cite>';
+        ulHtml += '<cite>'+data[i].name+'</cite>';
         ulHtml += '</a>';
         ulHtml = navBar(data[i].children, ulHtml);
       } else {
         //没有子菜单，给菜单加上跳转链接
         //判断是否跳转到单独页面
         if (data[i].target == "_blank") {
-          ulHtml += '<a lay-href="' + data[i].href + '" lay-tips="' + data[i].title + '" lay-direction="2" target="' + data[i].target + '">';
+          ulHtml += '<a lay-href="' + data[i].url + '" lay-tips="' + data[i].name + '" lay-direction="2" target="' + data[i].target + '">';
         } else {
-          ulHtml += '<a lay-href="' + data[i].href + '" lay-tips="' + data[i].title + '" lay-direction="2">';
+          ulHtml += '<a lay-href="' + data[i].url + '" lay-tips="' + data[i].name + '" lay-direction="2">';
         }
         //判断图标的显示
         //todo
         ulHtml += '<i class="layui-icon layui-icon-app"></i>';
-        ulHtml += '<cite>' + data[i].title + '</cite>';
+        ulHtml += '<cite>' + data[i].name + '</cite>';
       }
     }
     console.log(ulHtml);
@@ -57,10 +57,10 @@ layui.config({
     for (var i=0; i<data.length; i++){
       ulHtml += '<dd>';
       if (data[i].children != undefined && data[i].children.length > 0){
-        ulHtml += '<a href="javascript:;">'+data[i].title+'</a>';
+        ulHtml += '<a href="javascript:;">'+data[i].name+'</a>';
         ulHtml = navBar(data[i].children, ulHtml);
       }else{
-        ulHtml += '<a lay-href="'+data[i].href+'">'+data[i].title+'</a>';
+        ulHtml += '<a lay-href="'+data[i].url+'">'+data[i].name+'</a>';
       }
       ulHtml += '</dd>';
     }

@@ -3,6 +3,7 @@ package com.anyway.modules.sys.entity;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -16,11 +17,12 @@ import java.util.List;
  */
 @Data
 @TableName("sys_menu")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SysMenuDO implements Serializable {
     private static final long serialVersionUID = 7160622958910551008L;
 
     @TableId
-    private Long menuId;
+    private Long id;
 
     private Long parentId;
 
@@ -31,18 +33,18 @@ public class SysMenuDO implements Serializable {
 
     private String url;
 
-    private String perms;
-
     private Integer type;
 
     private String icon;
 
     private Integer orderNum;
 
+    private Integer status;
+
     @TableField(exist = false)
     private Boolean open;
 
     @TableField(exist = false)
-    private List<?> list;
+    private List<SysMenuDO> children;
 
 }
