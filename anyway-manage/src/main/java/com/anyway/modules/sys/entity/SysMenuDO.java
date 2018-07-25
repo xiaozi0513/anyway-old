@@ -21,17 +21,25 @@ import java.util.List;
 public class SysMenuDO implements Serializable {
     private static final long serialVersionUID = 7160622958910551008L;
 
+    /**
+     * 主键，菜单ID
+     */
     @TableId
     private Long id;
 
-    private Long parentId;
-
-    @TableField(exist = false)
-    private String parentName;
-
+    /**
+     * 菜单名称
+     */
     private String name;
 
+    private Long pid;
+
+    @TableField(exist = false)
+    private String pName;
+
     private String url;
+
+    private String perms;
 
     private Integer type;
 
@@ -40,9 +48,6 @@ public class SysMenuDO implements Serializable {
     private Integer orderNum;
 
     private Integer status;
-
-    @TableField(exist = false)
-    private Boolean open;
 
     @TableField(exist = false)
     private List<SysMenuDO> children;

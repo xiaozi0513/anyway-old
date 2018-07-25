@@ -10,7 +10,7 @@ layui.config({
    * 加载菜单
    */
   $.ajax({
-    url: '/json/menu',
+    url: '/sys/menu/nav',
     type: 'GET',
     data: {},
     dataType: 'json',
@@ -23,6 +23,7 @@ layui.config({
     if (typeof(data) == "string") {
       data = JSON.parse(data); //将字符串转换成Json对象
     }
+    console.log(data);
     var ulHtml = '';
     for (var i = 0; i < data.length; i++) {
       ulHtml += '<li data-name="home" class="layui-nav-item">';
@@ -44,7 +45,7 @@ layui.config({
         ulHtml += '<cite>' + data[i].name + '</cite>';
       }
     }
-    // console.log(ulHtml);
+    console.log(ulHtml);
     $("#LAY-system-side-menu").append(ulHtml);
     element.init();  //初始化页面元素
   };
@@ -58,7 +59,7 @@ layui.config({
       ulHtml += '<dd>';
       if (data[i].children != undefined && data[i].children.length > 0){
         ulHtml += '<a href="javascript:;">'+data[i].name+'</a>';
-        ulHtml = navBar(data[i].children, ulHtml);
+        ulHtml = loadChildMenu(data[i].children, ulHtml);
       }else{
         ulHtml += '<a lay-href="'+data[i].url+'">'+data[i].name+'</a>';
       }

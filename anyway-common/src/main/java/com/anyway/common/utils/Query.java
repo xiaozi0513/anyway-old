@@ -31,10 +31,10 @@ public class Query<T> extends LinkedHashMap<String, Object> {
         this.putAll(params);
 
         if (params.get("page") != null) {
-            currPage = (int) params.get("page");
+            currPage = Integer.parseInt((String) params.get("page"));
         }
         if (params.get("limit") != null) {
-            limit = (int) params.get("limit");
+            limit = Integer.parseInt((String) params.get("limit"));
         }
 
         this.put("offset", (currPage - 1) * limit);

@@ -3,7 +3,7 @@
 <mapper namespace="com.anyway.modules.sys.dao.SysMenuMapper">
 
     <select id="queryListByParentId" resultType="com.anyway.modules.sys.entity.SysMenuDO">
-        select * from sys_menu where parent_id = #{parentId} order by order_num asc
+        select * from sys_menu where pid = #{parentId} and status=1 order by order_num asc
     </select>
 
 </mapper>

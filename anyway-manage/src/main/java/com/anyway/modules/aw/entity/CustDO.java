@@ -18,19 +18,40 @@ import java.util.Date;
 public class CustDO implements Serializable {
     private static final long serialVersionUID = 5255014973528254637L;
 
+    /**
+     * 主键，客户ID
+     */
     @TableId
     private Long id;
 
+    /**
+     * 客户姓名
+     */
     private String custName;
 
+    /**
+     * 手机号
+     */
     private String phone;
 
+    /**
+     * 性别 0-未知，1-男，2-女
+     */
     private Integer gender;
 
+    /**
+     * 创建时间
+     */
     private Date createdAt;
 
+    /**
+     * 更新时间
+     */
     private Date updatedAt;
 
+    /**
+     * 备注
+     */
     private String remark;
 
 }

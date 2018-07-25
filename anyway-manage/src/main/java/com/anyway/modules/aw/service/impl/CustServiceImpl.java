@@ -8,6 +8,7 @@ import com.anyway.modules.aw.service.CustService;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
@@ -17,6 +18,7 @@ import java.util.Map;
  * @date: 2018/7/19 下午4:53
  * @since:
  */
+@Service("custService")
 public class CustServiceImpl extends ServiceImpl<CustMapper, CustDO> implements CustService {
 
     /**
@@ -24,6 +26,7 @@ public class CustServiceImpl extends ServiceImpl<CustMapper, CustDO> implements 
      * @param params 查询条件
      * @return
      */
+    @Override
     public PageUtils queryPage(Map<String, Object> params) {
         Page<CustDO> page = this.selectPage(
                 new Query<CustDO>(params).getPage(),
